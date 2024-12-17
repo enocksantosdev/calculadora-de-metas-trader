@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Metas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <!-- SheetJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="content">
+        <div class="container">
+            <h1>Calculadora de Metas</h1>
+            <form>
+                <label for="banca">Banca Inicial (R$):</label>
+                <input type="number" id="banca" placeholder="Ex: 60" required>
+                
+                <label for="meta">Meta Total (R$):</label>
+                <input type="number" id="meta" placeholder="Ex: 700" required>
+
+                <label for="dias">Dias para Atingir a Meta:</label>
+                <input type="number" id="dias" placeholder="Ex: 30" required>
+                
+                <div id="mensagem" class="erro"></div>
+                <button type="button" id="gerarAgenda" class="btn btn-flat-green">Gerar agenda</button>
+                <button type="button" id="btnExportar" class="btn btn-flat-green">Baixar agenda</button>
+            </form>
+            <!-- Resultados -->
+            <div id="resultados"></div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
