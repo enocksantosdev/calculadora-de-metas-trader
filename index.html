@@ -3,33 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/icon.jpg" type="image/x-icon">
     <title>Calculadora de Metas</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <!-- SheetJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="content">
-        <div class="container">
-            <h1>Calculadora de Metas</h1>
-            <form>
+    <div class="main-container">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="images/icon.jpg" alt="Logo da Calculadora" id="logo">
+        </div>
+
+        <!-- Título -->
+        <h1>Calculadora de Metas</h1>
+
+        <!-- Formulário -->
+        <div class="form-container">
+            <form id="formulario">
                 <label for="banca">Banca Inicial (R$):</label>
                 <input type="number" id="banca" placeholder="Ex: 60" required>
-                
+
                 <label for="meta">Meta Total (R$):</label>
                 <input type="number" id="meta" placeholder="Ex: 700" required>
 
                 <label for="dias">Dias para Atingir a Meta:</label>
                 <input type="number" id="dias" placeholder="Ex: 30" required>
-                
+
                 <div id="mensagem" class="erro"></div>
-                <button type="button" id="gerarAgenda" class="btn btn-flat-green">Gerar agenda</button>
-                <button type="button" id="btnExportar" class="btn btn-flat-green">Baixar agenda</button>
+                <div class="btn-container">
+                    <button type="button" id="gerarAgenda" class="btn">Gerar agenda</button>
+                    <button type="button" id="btnExportar" class="btn">Baixar agenda</button>
+                </div>
             </form>
-            <!-- Resultados -->
-            <div id="resultados"></div>
+        </div>
+
+        <!-- Resultados -->
+        <div id="resultados" class="resultados"></div>
+
+        <!-- Informações acima da Tabela -->
+        <div id="informacoes-tabela" class="informacoes-tabela" style="display:none;">
+        </div>
+
+        <!-- Tabela de Progresso -->
+        <div id="tabela-container" class="tabela-container" style="display:none;">
+            <table id="tabelaProgresso">
+                <thead>
+                    <tr>
+                        <th>Dia</th>
+                        <th>Banca Atual (R$)</th>
+                        <th>Progresso (R$)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- Gráfico -->
+        <div id="grafico-container" class="grafico-container" style="display:none;">
+            <canvas id="graficoEvolucao"></canvas>
+        </div>
+
+        <!-- Informações e links para corretoras -->
+        <div class="informacoes">
+            <h2>Quer começar a operar agora?</h2>
+            <p>Escolha uma das corretoras abaixo e inicie sua jornada com um bônus de boas-vindas ao se cadastrar!</p>
+            <div class="botao-corretoras">
+                <a href="https://trade.casatrade.com/register?aff=435278&aff_model=revenue&afftrack=" target="_blank" class="btn">CasaTrade</a>
+                <a href="https://trade.pixtrade.io/register?aff=428897&aff_model=revenue&afftrack=" target="_blank" class="btn">PixTrade</a>
+            </div>
         </div>
     </div>
 
