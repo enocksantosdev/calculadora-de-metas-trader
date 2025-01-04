@@ -47,20 +47,20 @@ function gerarTabela(bancaInicial, metaTotal, diasRestantes) {
     for (let i = 1; i <= diasRestantes; i++) {
         const necessario = saldo * (porcentagemDiaria / 100);
         saldo += necessario;
-
+    
         // Verificar se o saldo atingiu ou ultrapassou a meta
         if (saldo >= metaTotal) {
-            // Adicionar a linha final com a meta atingida e parar o loop
-            resultado += `<tr><td>Dia ${i}</td><td>R$ ${metaTotal.toFixed(2)}</td><td>R$ ${necessario.toFixed(2)}</td></tr>`;
-            break; // Interrompe o loop assim que a meta for atingida
+            // Adicionar a linha final com o saldo exato e parar o loop
+            resultado += `<tr><td>Dia ${i}</td><td>R$ ${metaTotal.toFixed(2)}</td><td>R$ ${(metaTotal - (saldo - necessario)).toFixed(2)}</td></tr>`;
+            tableData.push([`Dia ${i}`, metaTotal.toFixed(2), (metaTotal - (saldo - necessario)).toFixed(2)]);
+            break;
         }
-
+    
         // Adicionar as linhas da tabela
         resultado += `<tr><td>Dia ${i}</td><td>R$ ${saldo.toFixed(2)}</td><td>R$ ${necessario.toFixed(2)}</td></tr>`;
-
-        // Adicionar os dados da tabela no array
         tableData.push([`Dia ${i}`, saldo.toFixed(2), necessario.toFixed(2)]);
     }
+    
 
     // Fechar a tabela
     resultado += `</table>`;
